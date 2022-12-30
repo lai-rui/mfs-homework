@@ -94,5 +94,5 @@
 
 ![image-20221229114954883](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20221229114954883.png)
 
-2.在source control栏例对长裤中的文件进行提交、上传远程仓库；
+2.在source control栏例对仓库中的文件进行提交、上传远程仓库；
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css优先级</title>
+    <style type="text/css">
+        #p1{
+            border: 5px solid red !important;
+        }
+        #p2{
+            border:5px solid yellow;
+        }
+        #p3{
+            border:5px solid yellow;
+        }
+        .cls3{
+            border:5px solid green;
+        }
+        .cls4{
+            border:5px solid green;
+        }
+        p:nth-child(4){
+            border:5px solid cyan;
+        }
+        p:nth-child(5){
+            border:5px solid cyan;
+        }
+        [id=p5]{
+            border:5px solid blue;
+        }
+        [id=span1]{
+            border:5px solid blue;
+        }
+        span{
+            border:5px solid purple;         
+        }
+        *{
+            border:5px solid grey;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="pid" class="cls">
+        <p id="p1" class="cls1" style="border:5px solid orange">p1</p><!--验证！important的优先级-->
+        <p id="p2" class="cls2" style="border:5px solid orange">p2</p><!--验证内联样式的优先级-->
+        <p id="p3" class="cls3">p3</p><!--验证id选择器的优先级-->
+        <p id="p4" class="cls4">p4</p><!--验证类选择器的优先级-->
+        <p id="p5" class="cls5">p5</p><!--验证伪类选择器的优先级-->
+        <p id="p6"class="cls6">
+            p6<span id="span1">p6-span1</span>
+        </p><!--验证属性选择器的优先级-->
+        <p id="p7" class="cls7">
+            p7<span id="span2">p7-span2</span>
+        </p><!--验证标签选择器的优先级-->
+        <p id="p8" class="cls8">p8</p><!--验证通配符选择器的优先级-->
+        <p id="p9" class="cls9">p9</p><!--验证浏览器自定义的优先级-->
+</body>
+</html>

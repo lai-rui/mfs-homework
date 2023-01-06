@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form3</title>
+    </head>
+    <body>
+        <form action="/getinfo" method="get">
+            <div>
+                邮箱：<input type="email" name="email" required/>
+            </div>
+            <div>
+                数字：<input type="text" name="number" pattern="([1-9]\d*)?[02468]|100$|0$" placeholder="请输入1-100之间的偶数"/>
+            </div>
+            <div>
+                城市：<input list="city" name="city" />
+                <datalist id="city">
+                    <option>北京</option>
+                    <option>上海</option>
+                    <option>广州</option>
+                    <option>深圳</option>
+                </datalist>
+            </div>
+            <div>
+                <button>提交</button>
+            </div>
+        </form>
+    </body>
+</html>

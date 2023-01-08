@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Sprite test</title>
+    <style type="text/css">
+        a:hover{
+            background-position: 0 -66px;
+        }
+        a:active{
+            background-position: 0 -132px;
+        }
+        a{
+            display: block;/*显示成块状元素*/
+            /* color: rgba(0,0,0,0);文本隐藏透明字体会有蓝底白字的选中 */
+            text-indent:-2023px;/*文字隐藏*/
+            width: 200px;
+            height: 64px;
+            background-position: 0 0;
+            background-image: url(https://bkimg.cdn.bcebos.com/pic/5fdf8db1cb1349544e35843a564e9258d1094a40?x-bce-process=image/resize,m_lfit,w_268,limit_1);
+
+        }
+    </style>
+</head>
+<body>
+    <a>链接</a>
+</body>
+</html>

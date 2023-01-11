@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex圣杯</title>
+    <style>
+        body{
+            margin:0;
+        }
+        .header{
+            height: 60px;
+            background-color: lightgrey;
+            text-align: center;
+            line-height: 60px;
+            margin: 10px auto;
+        }
+        .body{
+            height: 60px;
+            color: white;
+            text-align: center;
+            line-height: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .body .itm-lft{
+            width: 200px;
+            background-color: green;
+        }
+        .body .itm-cter{
+            background-color: blue;
+            align-self: stretch;
+            flex-grow: 1;
+            margin: auto 7px;
+        }
+        .body .itm-rit{
+            width: 200px;
+            background-color: green;
+        }
+        .footer{
+            height: 60px;
+            background-color: lightgrey;
+            text-align: center;
+            line-height: 60px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="body"><!--优先加载body-->
+        <div class="itm-lft">侧边栏1固定宽度</div>
+        <div class="itm-cter">主内容栏自适应宽度</div>
+        <div class="itm-rit">侧边栏2固定宽度</div>
+    </div>
+    <header class="header">头部</header>
+    <footer class="footer">底部</footer>
+</body>
+</html>

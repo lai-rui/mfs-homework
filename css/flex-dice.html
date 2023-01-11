@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex骰子</title>
+    <style>
+        .container {
+            display: flex;
+            background-color: black;
+            width: 200px;
+            height: 300px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: center;
+        }
+
+        .item {
+            width: 60px;
+            height: 60px;
+            background-color: rgb(230, 230, 230);
+            border: 3.5px solid rgb(210, 210, 210);
+            border-bottom-color: rgb(170, 170, 170);
+            border-top-color:rgb(255, 255, 255);
+            border-radius: 7px;
+            margin: 10px auto;
+            padding:1px;
+            text-align: center;
+        }
+        .item .dot{
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background-color: rgb(40, 40, 40);
+            border-radius: 50%;
+            border: 2px solid rgb(40, 40, 40);
+            border-bottom-color: rgb(85, 85, 85);
+        }
+        .item .none{
+            background-color: rgba(40, 40, 40, 0);
+            border:2px solid rgba(40, 40, 40, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+        </div>
+        <div class="item">
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="item">
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="item">
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="item">
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="item">
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot none"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,313 @@
+body {
+    margin: 0;
+    font-family: Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Hiragino Sans GB W3, WenQuanYi Micro Hei, Microsoft YaHei UI, Microsoft YaHei, sans-serif;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+/* 页头CSS */
+.header {}
+
+.header-main {
+    background-image: url(https://www.golaravel.com/assets/images/header-bg.jpg);
+    background-position-x: 50%;
+    background-position-y: 20%;
+    background-origin: padding-box;
+    padding: 50px 0 20px 0;text-align: center;
+}
+.header-main .header-svg{
+    height: 100px;
+    margin: 0 0 40px 0;
+    
+}
+.header-main h1 {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    margin:0 0 45px 0;
+}
+
+.docs {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-docs {
+    text-decoration-line: none;
+    color: white;
+    border: 1px solid rgb(248, 56, 49);
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-size: 7px;
+    margin: 2px;
+}
+
+.btn-docs:hover {
+    background-color: #303030;
+    border: 1px solid #e1e1e1;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 2px solid #e1e1e1;
+}
+
+.link {
+    text-decoration-line: none;
+    color: #505050;
+    margin: 20px 30px;
+    font-size: 14px;
+}
+.link:hover{
+    color: #f4645f;
+}
+
+/* 主体内容CSS */
+.main {
+    background: #ebebeb;
+    padding: 40px 0;
+}
+
+/* 发布 */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    width: 65.5%;
+    font-size: 14px;
+}
+
+.content .post {
+    background: white;
+    margin-bottom: 30px;
+    padding: 35px;
+}
+.post a{
+    text-decoration-line: none;
+    color: #f4645f;
+}
+.post a:hover{
+    text-decoration-line: underline;
+}
+.post .post-header {
+    text-align: center;
+}
+
+.post-header h2 {
+    font-weight: 350;
+    font-size: 2em;
+    margin: 0;
+    color: #303030;
+}
+
+.post-header span {
+    color: #959595;
+    margin: 14px 0 0 0;
+    display: block;
+}
+.post .post-image {
+    margin-top: 30px;
+}
+
+.post-image img {
+    width: 100%;
+}
+
+.post .post-content {
+    margin: 30px 0;
+}
+
+.post-content p {
+    font-size: 18px;
+    font-family: Georgia, "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+    color: #444443;
+    line-height: 1.62em;
+}
+.post .post-button {
+    width: 84px;
+    background: #f4645f;
+    padding: 8px 0;
+    border: 1px solid #f4645f;
+    margin: 0;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.post-button a {
+    color: white;
+    text-decoration-line: none;
+}
+
+.post-button:hover {
+    background: #303030;
+    border: 1px solid #303030;
+}
+
+.post-footer {
+    border-top: 1px solid #ebebeb;
+    margin-top: 30px;
+    padding-top: 21px;
+}
+
+/* 边栏 */
+.aside {
+    width: 31%;
+    font-size: 14px;
+}
+
+.aside .widget {
+    background: white;
+    margin-bottom: 20px;
+    padding: 21px 30px;
+}
+
+.widget .title {
+    font-weight: 350;
+    margin: 0 0 21px 0;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    padding-bottom: 5px;
+    font-size: 1.5em;
+    position: relative;
+}
+
+.widget .title::after {
+    content: " ";
+    display: block;
+    width: 80px;
+    border-bottom: 1px solid #f4645f;
+    position: absolute;
+    bottom: -1px;
+}
+
+.widget .q-a {
+    text-decoration-line: none;
+    color: #f4645f;
+    font-size: 1em;
+}
+
+.widget .btn-widget {
+    width: 100%;
+    height: 20px;
+    display: block;
+    background: #f4645f;
+    text-decoration-line: none;
+    text-align: center;
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    margin-top: 5px;
+    padding: 7px 0px;
+}
+
+.widget .btn-widget:hover {
+    background: #303030;
+    border: 1px solid #303030;
+}
+
+/* 页脚CSS */
+.footer {
+    background-color: #202020;
+    padding-top: 35px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-size: 14px;
+}
+.footer-container h4{
+    font-weight: 400;
+    font-size: 1.5em;
+    color: white;
+    border-bottom: 1px solid rgb(48, 48, 48);
+    padding-bottom: 7px;
+    margin: 0 0 21px 0;
+    position: relative;
+}
+.footer-container h4::after{
+    content: " ";
+    display: block;
+    width: 90px;
+    bottom: -1px;
+    margin-top: 2px;
+    border-bottom: 1px solid #f4645f;
+    position: absolute;
+}
+.recent-post {
+    width: 33.33333333%;
+    padding: 0 45px;
+}
+.recent-singel-post {
+    line-height: 1.75em;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed #303030;
+}
+.recent-singel-post a{
+    text-decoration-line: none;
+    color: #959595;
+}
+.recent-singel-post a:hover{
+    color: #f4645f;
+}
+.recent-singel-post div{
+    color: #505050;
+}
+.tag-cloud {
+    width: 33.33333333%;
+    padding: 0 45px;
+}
+.tag-cloud a{
+    display: inline-block;
+    text-decoration-line: none;
+    color: #959595;
+    border: 1px solid #303030;
+    padding: 2px 7px;
+    margin: 0 7px 7px 0;
+    line-height: 1.5em;
+
+}
+.tag-cloud a:hover{
+    background: #f4645f;
+    border: 1px solid #f4645f;
+    color: white;
+}
+.friend-link {
+    width: 33.33333333%;
+    padding: 0 45px;
+}
+.friend-link a,.friend-link a:hover{
+    border: none;
+}
+.friend-link hr{
+    margin: 1em 0;
+    border: none;
+    border-top: 1px dashed #303030;
+}
+.footer .copyright{
+    background-color: #111;
+    color: #555;
+    border-top: 1px solid rgb(48, 48, 48) ;
+    padding: 28px 0;
+    text-align: center;
+    font-size: 13px;
+}
+.copyright span{
+    margin: 0 5px
+}
+.copyright span a{
+    text-decoration-line: none;
+    color: #555;
+}
+.copyright span a:hover{
+    text-decoration-line: underline;
+}

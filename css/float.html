@@ -17,24 +17,49 @@
         .link{
             margin: 5px 10px;
         }
+        .link:hover{
+            color:red;
+        }
+        .link:hover div{
+            display: block;
+            float: right;
+            width: 50px;
+            margin:0;
+            padding: 0;
+        }
         .fl{
             float:left;
         }
         .fr{
             float: right;
         }
+        .list{
+            list-style-type: none;
+            display:none;
+        }
     </style>
 </head>
 <body>
     <nav class="nav">
         <div class="container">
-           <div class="link fl">码蜂社</div>
-           <div class="link fl">首页</div>
-           <div class="link fl">前端</div>
-           <div class="link fl">社区</div>
-           <div class="link fl">关于我们</div>
-           <div class="link fr">登录</div>
-           <div class="link fr">注册</div>
+            <div class="link fl">码蜂社</div>
+            <div class="link fl">首页</div>
+            <div class="link fl">前端
+                <div class="list">
+                    <li>基础班</li>
+                    <li>闯关班</li>
+                    <li>Web闯关班</li>
+                </div>
+            </div>
+            <div class="link fl">社区
+                <ul class="list">
+                    <li>论坛</li>
+                    <li>闯关任务</li>
+                </ul>
+            </div>
+            <div class="link fl">关于我们</div>
+            <div class="link fr">登录</div>
+            <div class="link fr">注册</div>
         </div>
     </nav>
 </body>

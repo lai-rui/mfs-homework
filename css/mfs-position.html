@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav{
+            background-color: #ffe502;
+        }
+        .container{
+            overflow: hidden;
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+        .link{
+            margin: 5px 10px;
+            /* position: relative; */
+        }
+        .link:hover{
+            color:red;
+        }
+        .link:hover ul{
+            display: block;
+            float: right;
+            /* width: 50px; */
+            margin:0;
+            padding: 0;
+            position: absolute;
+            background-color: rgba(255, 229, 2,0.5);
+            border:1px solid grey;
+            top: 40px;
+        }
+        .link:hover ul>li{
+            border-bottom: 1px solid grey;
+            /* display: block; */
+        }
+        .fl{
+            float:left;
+        }
+        .fr{
+            float: right;
+        }
+        .list{
+            list-style-type: none;
+            display:none;
+            margin: 0;
+            padding: 0;
+            /* position: absolute; */
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="link fl">码蜂社</div>
+            <div class="link fl">首页</div>
+            <div class="link fl">前端
+                <ul class="list">
+                    <li>基础班</li>
+                    <li>闯关班</li>
+                    <li>Web闯关班</li>
+                </ul>
+            </div>
+            <div class="link fl">社区
+                <ul class="list">
+                    <li>论坛</li>
+                    <li>闯关任务</li>
+                </ul>
+            </div>
+            <div class="link fl">关于我们</div>
+            <div class="link fr">登录</div>
+            <div class="link fr">注册</div>
+        </div>
+    </nav>
+</body>
+</html>

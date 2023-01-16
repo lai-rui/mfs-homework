@@ -11,10 +11,6 @@
             margin: 0;
         }
 
-        .container{
-            display: flex;
-            flex-direction: column;
-        }
         .header {
             width: 100%;
             height: 60px;
@@ -22,7 +18,6 @@
             text-align: center;
             line-height: 60px;
             margin: 10px auto;
-            order: -1;
         }
 
         .item {
@@ -64,17 +59,15 @@
 </head>
 
 <body>
-    <div class="container">
-        <!--优先加载body-->
+    <header class="header">头部</header>
+        
         <div class="item">
+            <!--优先加载主内容-->
             <div class="itm-cter">主内容栏自适应宽度</div>
             <div class="itm-lft">侧边栏1固定宽度</div>
             <div class="itm-rit">侧边栏2固定宽度</div>
         </div>
-    
-    <header class="header">头部</header>
     <footer class="footer">底部</footer>
-</div>
 </body>
 
 </html>

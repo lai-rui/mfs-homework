@@ -8,13 +8,18 @@
     <title>throw</title>
     <script>
         function asyncTask() {
-            throw new Error("An error");
+            setTimeout(function () {
+                try {
+                    throw new Error("An error");
+
+                } catch (err) {
+                    console.log(err)
+                }
+            }, 1000)
+
         }
-        try {
-            asyncTask();
-        } catch (err) {
-            console.log(err)
-        }
+        asyncTask();
+
     </script>
 </head>
 

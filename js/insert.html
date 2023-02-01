@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插入元素DOM</title>
+    <script>
+        var newUl = document.createElement("ul");
+        newUl.id="list";
+        var newLi_1=document.createElement("li");
+        newLi_1.textContent="1";
+        var newLi_2=document.createElement("li");
+        newLi_2.textContent="2";
+        newUl.insertBefore(newLi_1,newUl.firstChild);
+        newUl.insertBefore(newLi_2, newUl.firstChild);
+    </script>
+</head>
+
+<body>
+    <ul id="list"></ul>
+</body>
+
+</html>

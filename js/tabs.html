@@ -7,25 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tabs</title>
     <style>
+        .container{
+            width: 180px;
+            border:1px solid rgba(26, 32, 39, 0.5);
+            border-radius: 10px;
+        }
         .tabs {
             display: flex;
-            border-bottom: 1px solid rgba(26,32,39,0.1);
-            margin: 5px 0;
+            border-bottom: 1px solid rgba(26, 32, 39, 0.1);
+            margin: 5px 3px;
 
         }
 
         .tabs .tab {
             padding: 2px 10px;
-            color: rgba(0,0,0,0.6);
+            color: rgba(0, 0, 0, 0.6);
         }
 
-        .content{
+        .content {
             margin: 10px 10px;
         }
-        #color{
+
+        #color {
             color: rgb(25, 118, 210);
             border-bottom: 2px solid rgb(25, 118, 210);
         }
+
         .hidden {
             display: none;
         }
@@ -33,15 +40,17 @@
 </head>
 
 <body>
-    <div class="tabs">
-        <div class="tab">TAB1</div>
-        <div class="tab">TAB2</div>
-        <div class="tab">TAB3</div>
-    </div>
-    <div class="content">
-        <div>tab1</div>
-        <div>tab2</div>
-        <div>tab3</div>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab">TAB1</div>
+            <div class="tab">TAB2</div>
+            <div class="tab">TAB3</div>
+        </div>
+        <div class="content">
+            <div>tab1</div>
+            <div>tab2</div>
+            <div>tab3</div>
+        </div>
     </div>
     <script>
         var tabs = document.getElementsByClassName("tab");
@@ -51,18 +60,18 @@
                 tabs[i].onclick = function () {
                     for (var j = 0; j < divs.length; j++) {
                         divs[j].className = "hidden";
-                        tabs[j].id="";
+                        tabs[j].id = "";
                     }
                     divs[i].className = "";
-                    tabs[i].id="color";
+                    tabs[i].id = "color";
                 }
             })(i)
         }
         for (var j = 0; j < divs.length; j++) {
             divs[j].className = "hidden";
         }
-        divs[0].className="";
-        tabs[0].id="color";
+        divs[0].className = "";
+        tabs[0].id = "color";
     </script>
 </body>
 

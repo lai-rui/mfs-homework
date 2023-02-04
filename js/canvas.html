@@ -11,76 +11,97 @@
 <body>
     <canvas id="clock" width="200px" height="200px"></canvas>
     <script>
-        // var now = new Date();
-        var ctx = document.getElementById("clock").getContext("2d");
-        //移动坐标轴
-        ctx.save();
-        ctx.translate(100, 100);
-        
-        //绘制表盘
-        ctx.save();
-        ctx.lineWidth = 7;
-        ctx.strokeStyle = "blue";
-        ctx.beginPath();
-        ctx.arc(0, 0, 80, 0, Math.PI * 2, true);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.restore();
+        function clock() {
+            var time = new Date();
+            var ctx = document.getElementById("clock").getContext("2d");
+            //移动坐标轴
+            ctx.save();
+            ctx.clearRect(0, 0, 200, 200);
+            ctx.translate(100, 100);
+            ctx.lineCap = 'round';
 
-        //绘制小时刻度
-        // ctx.save();
-        ctx.lineWidth = 3;
-        for (var i = 0; i < 12; i++) {
-            var deg = Math.PI * i / 6;
-            ctx.moveTo(70 * Math.cos(deg), 70 * Math.sin(deg));
-            ctx.lineTo(50 * Math.cos(deg), 50 * Math.sin(deg));
-            ctx.lineCap = "round";
+            //绘制小时刻度
+            ctx.save();
+            ctx.lineWidth = 4;
+            for (var i = 0; i < 12; i++) {
+                var deg = Math.PI * i / 6;
+                ctx.beginPath();
+                ctx.moveTo(68 * Math.cos(deg), 68 * Math.sin(deg));
+                ctx.lineTo(55 * Math.cos(deg), 55 * Math.sin(deg));
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            //绘制分钟刻度
+            ctx.save();
+            ctx.lineWidth = 2.5;
+            for (var i = 0; i < 60; i++) {
+                var deg = Math.PI * i / 30;
+                ctx.beginPath();
+                ctx.moveTo(68 * Math.cos(deg), 68 * Math.sin(deg));
+                ctx.lineTo(65 * Math.cos(deg), 65 * Math.sin(deg));
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            var h = time.getHours();
+            h = h >= 12 ? h - 12 : h;
+            var m = time.getMinutes();
+            var s = time.getSeconds();
+            //绘制时针
+            ctx.save();
+            var deg = Math.PI * h / 6 - Math.PI / 2;
+            ctx.lineWidth = 7;
+            ctx.beginPath();
+            ctx.moveTo(-15 * Math.cos(deg), -15 * Math.sin(deg));
+            ctx.lineTo(45 * Math.cos(deg), 45 * Math.sin(deg));
+
             ctx.stroke();
-        }
-        // ctx.restore();
+            ctx.restore();
 
-        //绘制分钟刻度
-        /*ctx.save();
-        ctx.lineWidth = "1.5";
-        for (var i = 0; i < 60; i++) {
-            var deg = Math.PI * i / 30;
-            ctx.moveTo(70 * Math.cos(deg), 70 * Math.sin(deg));
-            ctx.lineTo(60 * Math.cos(deg), 60 * Math.sin(deg));
-            ctx.lineCap = "round";
+            //绘制分针
+            ctx.save();
+            ctx.lineWidth = 5;
+            var deg = Math.PI * m / 30 - Math.PI / 2;
+            ctx.beginPath();
+            ctx.moveTo(-15 * Math.cos(deg), -15 * Math.sin(deg));
+            ctx.lineTo(65 * Math.cos(deg), 65 * Math.sin(deg));
             ctx.stroke();
+            ctx.restore();
+
+            //绘制秒针
+            ctx.save();
+            ctx.strokeStyle = "#ff0000";
+            ctx.lineWidth = 3;
+            var deg = Math.PI * s / 30 - Math.PI / 2;
+            ctx.beginPath();
+            ctx.moveTo(-17 * Math.cos(deg), -17 * Math.sin(deg));
+            ctx.lineTo(-4 * Math.cos(deg), -4 * Math.sin(deg));
+            ctx.stroke();
+            ctx.moveTo(4 * Math.cos(deg), 4 * Math.sin(deg));
+            ctx.lineTo(48 * Math.cos(deg), 48 * Math.sin(deg));
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(0, 0, 4, 0, Math.PI * 2, true);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(54 * Math.cos(deg), 54 * Math.sin(deg), 6, 0, Math.PI * 2, true);
+            ctx.stroke();
+            ctx.restore();
+
+            //绘制表盘
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = "#325FA2";
+            ctx.beginPath();
+            ctx.arc(0, 0, 80, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.restore();
+
+            window.requestAnimationFrame(clock);
+
         }
-        // ctx.restore();
-
-
-        var h = 10, m = 15, s = 35;
-        //绘制时针
-        ctx.save();
-        ctx.lineWidth = "4";
-        var deg = Math.PI * h / 6 - Math.PI / 2;
-        ctx.moveTo(0, 0);
-        ctx.lineTo(35 * Math.cos(deg), 35 * Math.sin(deg));
-        ctx.lineCap = "round";
-        ctx.stroke();
-        // ctx.restore();
-
-        //绘制分针
-        ctx.save();
-        ctx.lineWidth = "3";
-        var deg = Math.PI * m / 30 - Math.PI / 2;
-        ctx.moveTo(0, 0);
-        ctx.lineTo(40 * Math.cos(deg), 40 * Math.sin(deg));
-        ctx.stroke();
-        // ctx.restore();
-
-        //绘制秒针
-        ctx.save();
-        ctx.fillStyle = "#ff0000";
-        ctx.lineWidth = "2";
-        var deg = Math.PI * s / 30 - Math.PI / 2;
-        ctx.moveTo(0, 0);
-        ctx.lineTo(50 * Math.cos(deg), 50 * Math.sin(deg));
-        ctx.stroke();
-        // ctx.restore();*/
+        window.requestAnimationFrame(clock);
     </script>
 </body>
 

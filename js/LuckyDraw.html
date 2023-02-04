@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖</title>
+</head>
+
+<body>
+    <div id="award">点击“开始“按钮，开始抽奖！</div>
+    <div class="action">
+        <button id="start">开 始</button>
+        <button id="stop">停 止</button>
+    </div>
+    <script>
+        var award = document.getElementById("award");
+        var start = document.getElementById("start");
+        var stop = document.getElementById("stop");
+        var awards = ["特等奖", "一等奖", "二等奖", "三等奖", "鼓励奖"];
+        var aw_0 = 0, aw_1 = 0, aw_2 = 0, aw_3 = 0, aw_4 = 0;
+        var cycle;
+        start.onclick = function () {
+            cycle = setInterval(Start, 20);
+        }
+        stop.onclick = function () {
+            clearInterval(cycle);
+        }
+        function Start() {
+            while (true) {
+                var j = Math.floor(Math.random() * 5);
+                if (j == 0 && aw_0 < 1) {
+                    aw_0 += 1;
+                    award.innerHTML = awards[j];
+                    break;
+                }
+                if (j == 1 && aw_1 < 10) {
+                    aw_1 += 1;
+                    award.innerHTML = awards[j];
+                    break;
+                }
+                if (j == 2 && aw_2 < 30) {
+                    aw_2 += 1;
+                    award.innerHTML = awards[j];
+                    break;
+                }
+                if (j == 3 && aw_3 < 40) {
+                    aw_3 += 1;
+                    award.innerHTML = awards[j];
+                    break;
+                }
+                if (j == 4 && aw_4 < 19) {
+                    aw_4 += 1;
+                    award.innerHTML = awards[j];
+                    break;
+                }
+                if (aw_0 >= 1 && aw_1 >= 10 && aw_2 >= 30 && aw_3 >= 40 && aw_4 >= 19)
+                    aw_0 = 0, aw_1 = 0, aw_2 = 0, aw_3 = 0, aw_4 = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

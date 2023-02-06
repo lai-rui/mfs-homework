@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cls1{
+            border:5px solid green;
+        }
+        p:nth-child(1){
+            border:5px solid cyan;
+        }
+        p:nth-child(2){
+            border:5px solid cyan;
+        }
+        [id=p2]{
+            border:5px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- 比较类选择器和伪类选择器的优先级 -->
+        <p id="p1" class="cls1">p1</p>
+        <!-- 比较伪类和属性选择器的优先级 -->
+        <p id="p2" class="cls2">p2</p>
+    </div>
+</body>
+
+</html>

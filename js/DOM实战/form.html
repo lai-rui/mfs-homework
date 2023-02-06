@@ -39,32 +39,34 @@
             var password = oPassword.value;
             var password2 = oPassword2.value;
 
-            // if (username[0] != "^[a-zA-Z]+$" || username.length < 6 || username.length > 16 || username != " ^/w+$")
-            //     return false;
-            // if (password.length < 8 || password.length > 20 || password != " ^/w+$" || password != "[^%&',;=?$\x22]+")
-            //     return false;
-            // if (password2 != password)
-            //     return false;
-            // if (username == "^[a-zA-Z]/w{6,16}$")
-            //     if (password == "^/w{8,20}$")
-            //         if (password2 == password)
-            //             return true;
-            //         else {
-            //             oError.innerHTML = "必须和口令一致";
-            //             return false;
-            //         }
-            //     else {
-            //         oError.innerHTML = "8-20个字符，英文字符，数字，下划线或特殊符号";
-            //         return false;
-            //     }
-            // else {
-            //     oError.innerHTML = "以字母开头，6-16个英文字符，数字或下划线";
-            //     return false;
-            // }
-console.log(username == "^[a-zA-Z]+$");
-return false;
+            var u = /^[a-zA-Z][_a-zA-Z0-9]{5,15}/;
+            var psw = /^[_a-zA-Z0-9!@#$%^&*]{8,20}$/;
+            if (u.test(username))
+                if (psw.exec(password))
+                    if (password2 == password)
+                        return true;
+                    else {
+                        oError.innerHTML = "必须和口令一致";
+                        return false;
+                    }
+                else {
+                    oError.innerHTML = "8-20个字符，英文字符，数字，下划线或特殊符号";
+                    return false;
+                }
+            else {
+                oError.innerHTML = "以字母开头，6-16个英文字符，数字或下划线";
+                console.log(u.test(username));
+                return false;
+
+            }
+
+            // return false;
 
         }
+        // var t = /^[_a-zA-Z0-9!@#$%^&*]{8,20}$/;
+        // var u = "aaaaaaaa";
+        // var b = t.test(u);
+        // console.log(b);
     </script>
 </body>
 

@@ -13,7 +13,6 @@ body {
 .goods .item,
 .cart .item {
     width: 22%;
-    /* height: 250px; */
     margin: 10px;
     position: relative;
     border: 1px solid rgb(195, 195, 195);
@@ -24,7 +23,8 @@ body {
 
 .goods .item img,
 .cart .item img {
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     width:100%;
     height:168px;
 }
@@ -36,7 +36,6 @@ body {
     margin-left: 10px;
     font-size: 24px;
     font-weight: bold;
-    /* text-align: center; */
 }
 
 /* 商凭栏按钮 */
@@ -49,7 +48,6 @@ body {
     font-size: 14px;
     color: white;
     position: absolute;
-    /* left: 0; */
     right:5px;
     bottom: 5px;
     margin: auto;
@@ -60,7 +58,7 @@ body {
     background-color: red;
     border-radius: 5px;
     width: 60px;
-    height: 25px;
+    height: 30px;
     margin: 5px;
     border: 1px solid white;
     font-size: 12px;
@@ -71,8 +69,6 @@ body {
 }
 
 .cart .item .num {
-    /* position: absolute;
-    right: 0; */
-    margin: 0 10px;
+    margin: 5px 10px;
     color: grey;
 }

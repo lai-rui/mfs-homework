@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONP</title>
+</head>
+
+<body>
+    JSONP
+
+    <script>
+        var dom = document.getElementsByTagName("script");
+        function changeSrc(src){
+            dom[1].src=src[i];
+        }
+        function callback1(data) {
+            console.log(data,"1");
+        }
+        function callback2(data) {
+            console.log(data,"2");
+        }
+        function getData(callback) {
+            
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    dom[1].src=xhr.responseText;
+                }
+            }
+            xhr.open('get', 'data', true);
+            xhr.send();
+        }
+getData(consoleData);
+    </script>
+    <script src="http://www.b.com:3000/data.js"></script>
+</body>
+
+</html>

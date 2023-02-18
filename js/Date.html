@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+
+<body>
+    <script>
+        function twoDigital(num) {
+            var str = String(num);
+            if (str.length < 2) {
+                str = "0" + str;
+            }
+            return str;
+        }
+        function format(date) {
+            // "2017-03-05 10:03:08"
+            date.setFullYear(2017);
+            date.setMonth(3);
+            date.setDate(5);
+            date.setHours(10);
+            date.setMinutes(3);
+            date.setSeconds(8);
+            var year=  date.getFullYear();
+            var month=  date.getMonth();
+            var dates=  date.getDate();
+            var hour=  date.getHours();
+            var min=  date.getMinutes();
+           var sec= date.getSeconds();
+            
+            return twoDigital(year) + "-" + twoDigital(month) + "-" + twoDigital(dates) + " " + twoDigital(hour) + ":" + twoDigital(min) + ":" + twoDigital(sec);
+        }
+        console.log(format(new Date()));
+    </script>
+</body>
+
+</html>

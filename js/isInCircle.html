@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>是否在圆内</title>
+</head>
+
+<body>
+    <script>
+        //判断P是否在以(1,1))为圆心，半径为1的圆内
+        function isInCircle(x, y) {
+            if (Math.abs(Math.sqrt(x * x + y * y) - Math.sqrt(2)) < 1)
+                return true;
+            else
+                return false;
+        }
+        console.log(isInCircle(2,0))
+    </script>
+</body>
+
+</html>

@@ -11,6 +11,7 @@
 <body>
     <canvas id="clock" width="200px" height="200px"></canvas>
     <script>
+        document.domain="a.com"
         function clock() {
             var time = new Date();
             var ctx = document.getElementById("clock").getContext("2d");

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解析url</title>
+</head>
+
+<body>
+    <script>
+
+        function parseURL(str) {
+            var protocol = str.match(/^((http)|(https))/);
+            var host = str.match(/(?<=\/\/)[0-9a-zA-Z][\w+\.]+[0-9a-zA-Z]:\d+(?=\/)/);
+            var port = str.match(/(?<=:)\d+/);
+            var hostname = str.match(/(?<=\/\/)[\w\.]+(?=:)/);
+            var pathname = str.match(/(?<=\d\/)[\w\.]+(?=\/)/);
+            var hash = str.match(/#\w+/);
+            var query = str.match(/(?<=details\?)[a-z]+=\d+(?=#)/)
+            var result = [];
+
+            result.push({ protocol: protocol[0], host: host[0], port: port[0], hostname: hostname[0], pathname: pathname[0], hash: hash[0], query: query[0] });
+            console.log(result);
+        }
+        parseURL("http://work.mafengshe.com:80/question/details?id=24#somehash");
+    </script>
+</body>
+
+</html>

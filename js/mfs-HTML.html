@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getInfo</title>
+</head>
+
+<body>
+    <script>
+        function Data(title, teacher, during) {
+            this.title = title;
+            this.teacher = teacher;
+            this.during = during;
+
+        }
+        function getInfo(html) {
+            var title = [], teacher = [], during = [], str = [];
+
+            title = html.match(/[\u4e00-\u9fa5 0-9a-zA-Z\.]+(?=(<\/h4>))/g);
+            teacher = html.match(/[A-Z][a-zA-Z\u4e00-\u9fa5]+(?=<\!-- \/)/g);
+            during = html.match(/\d\.\dh(?=(<\!--))/g);
+
+            for (var i = 0; i < title.length; i++) {
+                str.push({ title: title[i], teacher: teacher[i], during: during[i] });
+            }
+            console.log(str);
+        }
+
+    </script>
+    <script src="mfs-HTML.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+</head>
+<body>
+    <script>
+        var start=new Date();
+        function mySetInterval(fun,millisec){
+            setTimeout(function(){
+                fun();
+                mySetInterval(fun,millisec);
+            },millisec)
+        }
+        mySetInterval(function(){
+            var end = new Date();
+            console.log("间隔时间",end-start); 
+        },1000);
+    </script>
+</body>
+</html>

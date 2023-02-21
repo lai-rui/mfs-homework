@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONP</title>
+</head>
+
+<body>
+    <button id="call1">callback1</button>
+    <button id="call2">callback2</button>
+    <script>
+        var data = [];
+        //获取url和callback数据
+        function getUrlandCall() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', '/url', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(JSON.parse(xhr.responseText));
+                    data = JSON.parse(xhr.responseText)
+                }
+            }
+            xhr.send();
+
+        }
+        getUrlandCall();
+        //调用callback函数
+        document.getElementById("call1").addEventListener('click', function () {
+            var s=document.getElementsByTagName("script");
+            if(s.length>1)
+            {
+                s[1].parentNode.removeChild(s[1]);
+            }
+            var script = document.createElement("script");
+            script.src = data[0].url;
+            document.body.appendChild(script);
+        })
+
+        document.getElementById("call2").addEventListener('click', function () {
+            var s=document.getElementsByTagName("script");
+            if(s.length>1)
+            {
+                s[1].parentNode.removeChild(s[1]);
+            }
+            var script = document.createElement("script");
+            script.src = data[1].url;
+            document.body.appendChild(script);
+        })
+
+        //callback函数
+        function a(data) {
+            console.log("callback1:" + data);
+        }
+        function b(data) {
+            console.log("callback2:" + data);
+        }
+    </script>
+</body>
+
+</html>

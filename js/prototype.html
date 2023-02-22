@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+</head>
+
+<body>
+    <script>
+        function Animal(food) {
+            this.food = food;
+        }
+        Animal.prototype.eat = function () {
+            return "eat " + this.food;
+        }
+        Animal.prototype.sleep = function () {
+            return "zzzzz";
+        }
+
+        function Dog(food, sound) {
+            Animal.call(this.food)
+            this.food=food;
+            this.sound = sound;
+        }
+        Dog.prototype = Object.create(Animal.prototype);
+        Dog.prototype.bark=function(){
+            return this.sound;
+        }
+
+        function Cat(food, sound) {
+            Animal.call(this.food)
+            this.food=food;
+            this.sound = sound;
+        }
+        Cat.prototype = Object.create(Animal.prototype);
+        Cat.prototype.bark=function(){
+            return this.sound;
+        }
+
+        function Human(food, sound) {
+            Animal.call(this.food)
+            this.food=food;
+            this.sound = sound;
+        }
+        Human.prototype = Object.create(Animal.prototype);
+        Human.prototype.speak=function(){
+            return this.sound;
+        }
+
+        var dog=new Dog('bone','汪汪');
+        var cat=new Cat('fish','喵喵');
+        var human=new Human('rice','你好');
+        console.log("dog:")
+        console.log(dog.bark());
+        console.log(dog.eat());
+        console.log("cat:")
+        console.log(cat.bark());
+        console.log(cat.sleep());
+        console.log("human:")
+        console.log(human.speak());
+
+
+    </script>
+</body>
+
+</html>

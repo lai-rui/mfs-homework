@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instanceOf</title>
+</head>
+<body>
+    <script>
+        function instanceOf(obj,clazz){
+           if( obj.__proto__==clazz.prototype)
+           return true;
+           return false;
+        }
+        function Goods(name){
+            this.name=name;
+            Goods.prototype.age=12;
+        }
+        var goods=new Goods("goods1");
+        console.log(goods);
+        console.log(instanceOf(goods,Goods));
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+        .a {
+            height: 1000px;
+        }
+
+        img {
+            height: 394px;
+            width: 650px;
+            background: green;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="a"></div>
+    <div class="a"></div>
+    <img data-src="http://static.mafengshe.com/home/pic/2.jpg?imageMogr2/quality/40" alt="">
+    <div class="a"></div>
+    <div class="a"></div>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        function isShow($node) {
+            var windowH = window.innerHeight;//可视窗口高度
+            var scrollTop = $(window).scrollTop();//垂直滚动距离
+            var nodeOT = $node.offset().top;//元素距离文档顶部距离
+            var nodeH = $node.height();//元素的高度
+            return nodeOT <= scrollTop + windowH && nodeOT + nodeH >= scrollTop//判断元素是否在可视窗口里
+        }
+        window.onscroll = function () {
+            console.log(isShow($('img')))
+            if(isShow($('img'))){
+                $('img').attr('src',$('img').data('src'));//将data-src的值赋给src
+            }
+        }
+    </script>
+</body>
+
+</html>

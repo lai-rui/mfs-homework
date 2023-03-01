@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀑布流</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <style>
+        .water-fall {
+            position: relative;
+        }
+
+        .item {
+            width: 250px;
+            position: absolute;
+            margin: 5px;
+            transition: all 1s;
+        }
+
+        .type1 {
+            background-color: rgb(122, 205, 241);
+            height: 250px;
+        }
+
+        .type2 {
+            background-color: rgb(123, 193, 10);
+            height: 400px;
+        }
+
+        .type3 {
+            background-color: rgb(255, 145, 218);
+            height: 650px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="water-fall">
+        <div class="item type1">1</div>
+        <div class="item type2">2</div>
+        <div class="item type3">3</div>
+        <div class="item type2">4</div>
+        <div class="item type3">5</div>
+        <div class="item type1">6</div>
+        <div class="item type2">7</div>
+        <div class="item type3">8</div>
+        <div class="item type2">9</div>
+        <div class="item type3">10</div>
+        <div class="item type1">11</div>
+        <div class="item type3">12</div>
+        <div class="item type1">13</div>
+        <div class="item type3">14</div>
+        <div class="item type1">15</div>
+        <div class="item type2">16</div>
+        <div class="item type1">17</div>
+        <div class="item type2">18</div>
+    </div>
+    <script>
+        function findMinIndex(arr) {//找出高度最小的列
+            var minIndex = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[minIndex] > arr[i])
+                    minIndex = i;
+            }
+            return minIndex;
+        }
+        function waterFall(){
+        var itemWidth = $(".item").outerHeight(true);
+        var containerWidth = $(".water-fall").width();
+        var colNum = Math.floor(containerWidth / itemWidth);
+        var height = [];
+        for (var i = 0; i < colNum; i++) {
+            height.push(0);
+        }
+        $(".item").each(function () {//将item放至高度最小的列里
+            var index = findMinIndex(height);
+            $(this).css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            })
+            height[index] += $(this).outerHeight(true);
+        })
+    }
+    window.onresize=function(){//onresize 事件会在窗口或框架被调整大小时发生
+        waterFall();
+    }
+    waterFall();
+
+    </script>
+</body>
+
+</html>

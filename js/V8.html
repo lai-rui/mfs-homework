@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V8</title>
+</head>
+
+<body>
+    <script>
+        var a = [];
+        for (var i = 0; i < 1000000; i++) {
+            a.push(i);
+        }
+        setInterval(function () {
+            var b = a;
+            var c = function () {
+                var d = b;
+                console.log('c');
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

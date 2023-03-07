@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册表单</title>
+</head>
+
+<body>
+    <form action="/" method="post">
+        <div>
+            username:<input type="text" id="username">
+        </div>
+        <div>
+            password:<input type="password" id="password" oninput="passwordChanged()">
+        </div>
+        <div>
+            pwd-rtp:<input type="password-repeat" id="password-repeat" oninput="passwordRepeatChanged()">
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+
+    </form>
+    <script>
+        var password;
+        var passwordInput = document.getElementById("password");
+        var pwd_rtpInput = document.getElementById("password-repeat");
+        function passwordChanged() {
+            password = passwordInput.value;
+        }
+        function passwordRepeatChanged() {
+            if (pwd_rtpInput.value == password) {
+                pwd_rtpInput.setCustomValidity("")
+            }
+            else {
+                pwd_rtpInput.setCustomValidity("两次密码输入不一致");
+            }
+        }
+    </script>
+</body>
+
+</html>

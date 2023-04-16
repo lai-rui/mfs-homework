@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀑布流promise </title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <style>
+        .water-fall {
+            position: relative;
+        }
+
+        .item {
+            margin: 0px 10px 10px 0px;
+            width: 100px;
+            position: absolute;
+        }
+
+        .type1 {
+            background: #ff000070;
+            height: 250px;
+        }
+
+        .type2 {
+            background: #00ff0070;
+            height: 400px;
+        }
+
+        .type3 {
+            background: #0000ff70;
+            height: 650px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="water-fall">
+        <div class="item type1 item1">1</div>
+        <div class="item type2 item2">2</div>
+        <div class="item type3 item3">3</div>
+        <div class="item type2 item4">4</div>
+        <div class="item type1 item5">5</div>
+        <div class="item type3 item6">6</div>
+        <div class="item type1 item7">7</div>
+        <div class="item type3 item8">8</div>
+        <div class="item type2 item9">9</div>
+        <div class="item type3 item10">10</div>
+        <div class="item type2 item11">11</div>
+        <div class="item type1 item12">12</div>
+    </div>
+</body>
+<script>
+    function findMinIndex(arr) {
+        return new Promise(
+            function (resolve, reject) {
+                var minIndex = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] < arr[minIndex]) {
+                        minIndex = i;
+                    }
+                }
+                resolve(minIndex);
+            })
+    }
+    function waterFall() {
+        var itemWidth = $(".item").outerWidth(true);
+        var waterFallWidth = $(".water-fall").width();
+        var columnNum = Math.floor(waterFallWidth / itemWidth);
+        var height = [];
+        for (let i = 0; i < columnNum; i++) {
+            height.push(0);
+        }
+
+        //promise加载更多
+       findMinIndex(height).then(index => {
+            $(".item1").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item1").outerHeight(true);
+            console.log("1",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item2").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item2").outerHeight(true);
+            console.log("2",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item3").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item3").outerHeight(true);
+            console.log("3",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item4").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item4").outerHeight(true);
+            console.log("4",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item5").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item5").outerHeight(true);
+            console.log("5",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item6").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item6").outerHeight(true);
+            console.log("6",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item7").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item7").outerHeight(true);
+            console.log("7",height)
+            return findMinIndex(height);
+        })
+        .then(index=>{
+            $(".item8").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item8").outerHeight(true);
+            console.log("8",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item9").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item9").outerHeight(true);
+            console.log("9",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item10").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item10").outerHeight(true);
+            console.log("10",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item11").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item11").outerHeight(true);
+            console.log("11",height)
+            return findMinIndex(height);
+        }).then(index=>{
+            $(".item12").css({
+                top: height[index] + "px",
+                left: itemWidth * index + "px",
+            });
+            height[index] += $(".item12").outerHeight(true);
+            console.log("12",height)
+            return findMinIndex(height);
+        })
+    };
+    
+    window.onresize = function () {
+        waterFall();
+    }
+    waterFall();
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button</title>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <button @click="addOne()">加1</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num: 0,
+            },
+
+            methods: {
+                addOne: function () {
+                    this.num += 1;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

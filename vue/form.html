@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板</title>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form action="/getInfor" @submit.prevent="noupdate"> <!--调用防止页面刷新方法 -->
+            username:<input v-model="username">
+            age:<input v-model="age">
+            <input type="submit" @click="submit()">
+        </form>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                username: "",
+                age: null,
+            },
+            methods: {
+                //防止页面刷新
+                noupdate(e) {
+                    e.preventDefault();
+                },
+                //axios post方法提交数据
+                submit() {
+                    axios.post('/user', {
+                        username: this.username,
+                        age: this.age
+                    })
+                        .then(function (response) {
+                            // console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

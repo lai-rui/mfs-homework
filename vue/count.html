@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <parent></parent>
+    </div>
+    <script>
+        Vue.component("parent", {
+            data: function () {
+                return { a: 0 }
+            },
+            methods: {
+                add(e) {
+                    this.a++;
+                }
+            },
+            template: `
+             <div>
+                <div >{{a}}</div>
+                <child :num="a" @increment="add"></child>
+                <child :num="a" @increment="add"></child>
+                </div>`
+        })
+        Vue.component("child", {
+            props: ["num"],
+            data: function () {
+                return { a: 0 }
+            },
+            methods: {
+                btnClick(e) {
+                    this.a++;
+                    this.$emit("increment");
+                }
+            },
+            template: `
+             <button @click="btnClick">{{a}}</button>`
+            
+        })
+        var app = new Vue({
+            el: "#app",
+            data: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

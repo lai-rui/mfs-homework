@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.js"></script>
+    <style>
+        .header{
+            background-color: red;
+            height:50px;
+            float:top;
+            top:0px;
+        }
+        .content{
+            background-color: grey;
+            margin:10px 0;
+            height:800px
+        }
+        .footer{
+            background-color: green;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <he-fo>
+            <contents></contents>
+        </he-fo>
+    </div>
+    <script>
+        Vue.component("he-fo",{
+            template:`
+            <div>
+            <header class="header"></header>
+            <slot></slot>
+            <footer class="footer"></footer>
+            </div>`
+        })
+        Vue.component("contents",{
+            data(){
+                return {content:"this is contents."}
+            },
+            template:  `<div class="content">{{content}}<div>`
+        })
+        var app=new Vue({
+            el:"#app",
+        })
+    </script>
+</body>
+</html>
